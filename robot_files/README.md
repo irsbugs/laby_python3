@@ -176,7 +176,7 @@ When the program runs you may wish to gather data in a local folder. The folder 
 created if it does not already exist. The name *full_path* is given to the variable that holds
 the `~/laby_data/` string.
 
-### Backup of the program.py file. backup(verbose=True)
+### Backup of the program.py file: backup(verbose=True)
 
 Upon pressing the *execute* button on the Laby GUI the code you have written in the Program window
 is dumped to the `/tmp/ant-nnnnn-n` folder. The function *backup()* maybe called by your
@@ -189,7 +189,7 @@ If you wish this backup operation to be displayed in the Messages window, then c
 *backup(verbose=True)*
 
 
-### Drop rock. drop_rock(have_rock=True, rotate="right")
+### Drop rock: drop_rock(have_rock=True, rotate="right")
 
 A common scenario is that the ant is carrying a rock and comes across another rock that is blocking 
 his way. The ant can not carry two rocks so he needs to turn around till he finds a void space
@@ -205,7 +205,7 @@ Once the rock has been droped the function turns the ant back to the original di
 If you want the ant to start looking for a void space in an anti-clockwise direction then call the 
 function with *drop_rock(True, "left")*
 
-### GPS update. gps_update(gps, action="forward", verbose=False, log=False):
+### GPS update: gps_update(gps, action="forward", verbose=False, log=False):
 
 The direction that the ant is facing may be determined by looking the the Laby GUI display, but is
 not available through a function call. A simple integer based direction system can be used, where 0
@@ -224,7 +224,7 @@ gps list will be returned.
 
 The *gps_update()* call can include *log=True*. This will then call the gps_log() function described below.
 
-### GPS log. gps_log(gps):
+### GPS log: gps_log(gps):
 
 Whenever the program starts, it will create an empty csv file in the *~/laby_data/* folder called *gps.csv*. 
 The gps_log(gps) function will write the contents of the gps list to the csv file. At the beginning of the
@@ -233,28 +233,7 @@ with gps_log(gps). The first line of the gps.csv file will then become: `0,0,1`
 
 Potentially this file could be analyzed after running your program to investigate the efficiency of the ant.
 
-### Turn right
-
-
-
-### GPS log
-
-
-
-
-
-
-
-
-
-
-
-
-gps_update(gps, action="forward", verbose=False, log=False):
-
-
-
-
+### Turn right:
 
 
 
