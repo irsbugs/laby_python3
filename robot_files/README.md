@@ -172,15 +172,15 @@ filenames to make them unique, etc.
 
 ### Establish a local folder for data
 
-When the program runs you may wish to gather data in a local folder. The folder ~/laby_data is 
+When the program runs you may wish to gather data in a local folder. The folder `~/laby_data/` is 
 created if it does not already exist. The name *full_path* is given to the variable that holds
-the *~/laby_data* string.
+the `~/laby_data/` string.
 
 ### Backup of the program.py file. backup(verbose=True)
 
 Upon pressing the *execute* button on the Laby GUI the code you have written in the Program window
-is dumped to the /tmp/ant-nnnnn-n folder. The function *backup()* maybe called by your
-program. It will copy from the /tmp/ant folder the file program.py to the ~/laby_data folder and
+is dumped to the `/tmp/ant-nnnnn-n` folder. The function *backup()* maybe called by your
+program. It will copy from the `/tmp/ant` folder the file program.py to the `~/laby_data/` folder and
 give the file a time stamped name. For example: *program_2020-05-16_20-29-04.py*. Should you shutdown 
 your computer then when you restart you can cut and paste the content from the latest backup file
 into your Laby Program window to continue from where you left off.
