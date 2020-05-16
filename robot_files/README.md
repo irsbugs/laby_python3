@@ -88,12 +88,13 @@ this file that may be enhanced. For examples:
   These functions may be replaced with the Python3 `input()` function doing the sys.stdin.readline()
   while its *prompt*  feature provides the sys.stdout.write() and sys.stdout.flush(). In doing this 
   the `import sys` line of code may be removed from the file.
-* The robot.py file has an extra level of complexity in its is look() function. This provides the 
-the title-case variable names: Void, Wall, Rock, Web and Escape. With the python3 `input()` function
+* The robot.py file has an extra level of complexity in its look() function. This provides the 
+title-case variable names: Void, Wall, Rock, Web and Escape. With the python3 `input()` function
 the string that is returned may be used directly. Thus it provides the lowercase names: void, wall, 
 rock, web, and escape.
 
-The file **robot_python3_simple.py** is included as a direct replacement for the python2 robot.py file.
+The file **robot_python3_simple.py** is included as a direct replacement for the python2 robot.py file, 
+and includes the above enhancements.
 
 
   
