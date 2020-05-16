@@ -92,20 +92,13 @@ this file that may be enhanced. For examples:
 title-case variable names: Void, Wall, Rock, Web and Escape. With the python3 `input()` function
 the string that is returned may be used directly. Thus it provides the lowercase names: void, wall, 
 rock, web, and escape.
+* Only the look() file provided a response via a variable. The other functions, left(), right(), forward()
+take(), drop() and escape() return a response to the calling code. Normally the response is *ok* to 
+indicate the function has executed.
 
 The file **robot_python3_simple.py** is included as a direct replacement for the python2 robot.py file, 
 and includes the above enhancements.
-
-
-  
-  
-  
-  
-
-  
-
-  
-, and it contains a the local defined function `input()`, which happend to be the same name as  
+ 
 
 
 
