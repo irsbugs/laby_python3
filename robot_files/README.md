@@ -1,6 +1,6 @@
 # Notes on robot files
 
-## Python2
+## Python2 - Background Information
 
 The robot file for python2 resides in `/usr/share/laby/mods/python/lib/robot.py`.
 
@@ -99,6 +99,10 @@ indicate the function has executed.
 The file **robot_python3_simple.py** is included as a direct replacement for the python2 robot.py file, 
 and includes the above enhancements.
  
+As an alternative to the above, the file	**robot_python3_simple_verbose.py** includes a boolean variable 
+**verbose** defaulted to **True**. If any function is called, then the response from executing the 
+function is displayed in the message window. E.g. `forward: ok`
+
 
 
 
