@@ -10,8 +10,7 @@ def input():
   return l;
 
 def laby_name_left():
-  output("left");
-  input();
+  output("left"); input();
 
 def laby_name_right():
   output("right"); input();
