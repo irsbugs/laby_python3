@@ -233,14 +233,52 @@ with gps_log(gps). The first line of the gps.csv file will then become: `0,0,1`
 
 Potentially this file could be analyzed after running your program to investigate the efficiency of the ant.
 
-### Turn right:
+### Check right: check_right(rock):
+
+The rock argument is a boolean value to indicate if the ant is carrying a rock.
+
+The ant will turn 90 degrees to his right and after reviewing the situation decide on an action, as follows:
+* if there is an exit, then escape.
+* if there is an exit, but carrying a rock, then drop rock and escape
+* if there is a wall turn back 90 degrees to the left
+* if there is a rock pick it up.
+* if there is a rock, and already have a rock, drop the one that is being carried, pick up the new rock.
+* if there is a web, and have a rock, drop rock and destroy web, then pick up rock.
+* if there is a web and don't have rock, turn back 90 degrees to the left.
+
+### Check left: check_left(rock):
+
+The rock argument is a boolean value to indicate if the ant is carrying a rock.
+
+The ant will turn 90 degrees to his left and after reviewing the situation decide on an action, as follows:
+* if there is an exit, then escape.
+* if there is an exit, but carrying a rock, then drop rock and escape
+* if there is a wall turn back 90 degrees to the right
+* if there is a rock pick it up.
+* if there is a rock, and already have a rock, drop the one that is being carried, pick up the new rock.
+* if there is a web, and have a rock, drop rock and destroy web, then pick up rock.
+* if there is a web and don't have rock, turn back 90 degrees to the right.
+
+### Ant Official Intelligence: ant_official_intelligence(direction="right"):
+
+This function will provide the ant with enough intelligence to get through many labyrinth designs.
+
+This function calls additional functions, drop_rock() and left_check() or right_check()
+
+The ants official inteligence is based around the concept that if you enter a labyrinth and pick one 
+hand to keep brushing along against the wall, then you will eventually get to the exit.
+
+Along the way the ant adheres to the following rule: 
+
+After moving forward, always check in the assigned direction to see if it provides a way forwards. 
+This way the ant attempts to keep brushing along the specified wall. Among other reasons, this stops 
+the ant from going right past an exit door.
+
+This function defaults to the ant always checking on its right. If "left" is entered as the argument 
+the ant always checks on his left.
 
 
-
-
-
-
-
+TODO: Add the grid designed:
 
 
 
