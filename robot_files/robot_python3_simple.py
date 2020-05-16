@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-# robot.py
+#
+# Python modules: robot.py
+# Resides in: /usr/share/laby/mods/python3/lib/
 #
 # This is a version of robot.py that is modified for use with python3.
 # It contains the original set of functions: 
