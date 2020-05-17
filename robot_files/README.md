@@ -211,7 +211,7 @@ The direction that the ant is facing may be determined by looking the the Laby G
 not available through a function call. A simple integer based direction system can be used, where 0
 is north or up the screen, 1 is East or heading to the right, 2 is South and 3 is West.
 
-The ant can only move forward on space at a time in the direction that he is facing. Thus an integer
+The ant can only move forward one space at a time in the direction that he is facing. Thus an integer
 system of coordinates can be updated to relatively keep track of where the ant is.
 
 Thus at the beginning of the program, if the ant is facing north, then the x coordinate, y coordinate 
@@ -232,6 +232,71 @@ program if the ant is facing east then you might wish to execute the code, `gps 
 with gps_log(gps). The first line of the gps.csv file will then become: `0,0,1`
 
 Potentially this file could be analyzed after running your program to investigate the efficiency of the ant.
+
+### Create Grid: create_grid(grid_max = 21)
+
+The *create_grid* function along with 5 other functions allows the ant to explore the labyrinth he is
+in and map its contents.
+
+The grid is comprised of lists that make a two dimensional array that is accessed by X and Y coordinates.
+With the grid_max argument at its default value of 21, the grid in both X and Y axis will be from -10 to +10.
+The contents of positions on the grid are entered as `grid[X][Y] = string value`. The string value is a single 
+character. Thus if you wanted to use *s* for *starting point*, then the entry would be `grid[0][0] = "s"`.
+As the grid has equal amounts of negative and positive axis, then an offset must be applied to so that when
+x=0 and y=0 then this is offset to be the centre of the grid.
+
+The *create_grid* function creates this list array called *grid* where each point in the grid represents one
+square in the labyrinth and the surrounding area.
+
+### Plot 360: plot_360(grid, gps, grid_max)
+
+The *plot_360* function requests the ant to turn through 360 degrees. Every 90 degrees the ant performs a 
+*get_look()* and what is observed (void, wall, rock, web or exit) is recorded in the grid using single 
+characters: void is ., wall is o, rock is r, web is w and exit is x. Note that these are the same characters 
+used in the map section of the laby files.
+
+### Get look: get_look()
+
+This is normally an internal function that is only used by *plot_360*. It returns the single characters
+of what it sees with the look() function.
+
+### Ant position: ant_position(gps, grid_max)
+
+The *ant_position* function will place an arrow character pointing in the direction the ant is facing
+into the grid at the current location of the ant
+
+### Rotate grid: rotate_grid(grid, grid_max)
+
+The grid that is a list array if converted to a string in a simple way will result in a grid that displays
+as rotated 90 degrees clockwise. The *rotate_grid* function rotates the grid 90 degrees aanti-clockwise, and 
+then creates a string of data that is the contents of the grid.
+
+Creating the label for the X axis is a rather complex, so a seperate internal function is used to perform this.
+
+This string could then be written to the Message window with the say() function.
+
+### Write Grid: write_grid(grid_string)
+
+The string of data collected by *rotate_grid* may be passed to *write_grid* where it is written to the
+file *grid* in the *~/laby_data* folder.
+
+### Ant Official Intelligence: ant_official_intelligence(direction="right"):
+
+This function will provide the ant with enough *intelligence* to get through many labyrinth designs.
+
+This function calls additional functions, drop_rock() and left_check() or right_check()
+
+The ants official inteligence is based around the concept that if you enter a labyrinth and pick one 
+hand to keep brushing along against the wall, then you will eventually get to the exit.
+
+Along the way the ant adheres to the following rule: 
+
+After moving forward, always check in the assigned direction to see if it provides a way forwards. 
+This way the ant attempts to keep brushing along the specified wall. Among other reasons, this stops 
+the ant from going right past an exit door.
+
+This function defaults to the ant always checking on its right. If "left" is entered as the argument 
+the ant always checks on his left.
 
 ### Check right: check_right(rock):
 
@@ -259,28 +324,26 @@ The ant will turn 90 degrees to his left and after reviewing the situation decid
 * if there is a web, and have a rock, drop rock and destroy web, then pick up rock.
 * if there is a web and don't have rock, turn back 90 degrees to the right.
 
-### Ant Official Intelligence: ant_official_intelligence(direction="right"):
 
-This function will provide the ant with enough intelligence to get through many labyrinth designs.
+### Making your own labyrinths
 
-This function calls additional functions, drop_rock() and left_check() or right_check()
+The Laby distribution includes 13 laby files with different labyrinth designs. 
+These are in the folder `/usr/share/laby/levels/`. These text files commence with a map. for example
 
-The ants official inteligence is based around the concept that if you enter a labyrinth and pick one 
-hand to keep brushing along against the wall, then you will eventually get to the exit.
+```
+map:
+o o o o o o
+o w . . . x
+o . . . . o
+o . . . . o
+o . ↑ . r o
+o o o o o o
+```
 
-Along the way the ant adheres to the following rule: 
+Where o is a wall, . is void, r is rock, w is web, x is exit. There are four arrow characters to indicate
+the ant and the direction it is facing.
 
-After moving forward, always check in the assigned direction to see if it provides a way forwards. 
-This way the ant attempts to keep brushing along the specified wall. Among other reasons, this stops 
-the ant from going right past an exit door.
-
-This function defaults to the ant always checking on its right. If "left" is entered as the argument 
-the ant always checks on his left.
-
-
-TODO: Add the grid designed:
-
-
+These files may be edited and additional files created, that contain your own labyrinth designs.
 
 
 
