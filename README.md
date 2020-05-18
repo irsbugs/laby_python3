@@ -16,8 +16,8 @@ with python3.
 These other robot.py files contain additional functions that may assist in writing 
 your ant program. See the *README.md* file for a description of these additional functions.
 
-A presentation on enhancing Laby to support python was delivered at the Hamilton Python Uses Group
-meeting on 18 May 2020. The presentation slides are attachedon both odp and pdf formats.
+A presentation on enhancing Laby to support python3 was delivered at the Hamilton Python Users Group
+meeting on 18 May 2020. The presentation slides are attached in both odp and pdf formats.
 
 Ian Stewart
 
